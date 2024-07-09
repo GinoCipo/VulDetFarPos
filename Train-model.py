@@ -354,7 +354,7 @@ yht_probs = bilstm_model.predict(X_test).ravel()
 now = datetime.now() # current date and time
 nowformat = now.strftime("%H:%M")
 print("saving LSTM model " + mode + ". ", nowformat)
-bilstm_model.save('model/Bidirectional_LSTM_model_'+mode+'.h5')  # creates a HDF5 file 'my_model.h5'
+bilstm_model.save('Model-BiLSTM/Bidirectional_LSTM_model_'+mode+'.h5')  # creates a HDF5 file 'my_model.h5'
 print("\n\n")
 
 for dataset in ["train","test","finaltest"]:
