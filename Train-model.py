@@ -63,7 +63,7 @@ w = "withString" #word2vec model is not replacing strings but keeping them
 
 #get word2vec model
 w2v = "word2vec_"+w+str(mincount) + "-" + str(iterationen) +"-" + str(s)
-w2vmodel = "w2v/" + w2v + ".model"
+w2vmodel = "VulDetFarPos/wordtovec_models/" + w2v + ".model"
 
 #load word2vec model
 if not (os.path.isfile(w2vmodel)):
@@ -74,7 +74,7 @@ w2v_model = Word2Vec.load(w2vmodel)
 word_vectors = w2v_model.wv
 
 #load data
-with open('data/plain_' + mode, 'r') as infile:
+with open('./VulDetFarPos/data/plain_' + mode, 'r') as infile:
   data = json.load(infile)
   
 now = datetime.now() # current date and time
@@ -162,11 +162,11 @@ print("cutoff " + str(cutoff))
 print("cutoff2 " + str(cutoff2))
 
 
-with open('data/' + mode + '_dataset_keystrain', 'wb') as fp:
+with open('./VulDetFarPos/data/' + mode + '_dataset_keystrain', 'wb') as fp:
   pickle.dump(keystrain, fp)
-with open('data/' + mode + '_dataset_keystest', 'wb') as fp:
+with open('./VulDetFarPos/data/' + mode + '_dataset_keystest', 'wb') as fp:
   pickle.dump(keystest, fp)
-with open('data/' + mode + '_dataset_keysfinaltest', 'wb') as fp:
+with open('./VulDetFarPos/data/' + mode + '_dataset_keysfinaltest', 'wb') as fp:
   pickle.dump(keysfinaltest, fp)
 
 TrainX = []
@@ -234,9 +234,9 @@ print("time: ", nowformat)
 #  pickle.dump(ValidateX, fp)
 #with open('data/plain_' + mode + '_dataset-validate-Y_'+w2v + "__" + mode2, 'wb') as fp:
 #  pickle.dump(ValidateY, fp)
-with open('data/' + mode + '_dataset_finaltest_X', 'wb') as fp:
+with open('./VulDetFarPos/data/' + mode + '_dataset_finaltest_X', 'wb') as fp:
   pickle.dump(FinaltestX, fp)
-with open('data/' + mode + '_dataset_finaltest_Y', 'wb') as fp:
+with open('./VulDetFarPos/data/' + mode + '_dataset_finaltest_Y', 'wb') as fp:
   pickle.dump(FinaltestY, fp)
 #print("saved finaltest.")
 
