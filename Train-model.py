@@ -74,8 +74,8 @@ w = "withString"  # word2vec model is not replacing strings but keeping them
 
 # get word2vec model
 w2v = "word2vec_" + w + str(mincount) + "-" + str(iterationen) + "-" + str(s)
-w2vmodel = os.path.join("wordtovec_models", f"{w2v}.model")
-
+# w2vmodel = os.path.join("wordtovec_models", f"{w2v}.model")
+w2vmodel = f"./wordtovec_models/{w2v}.model"
 # load word2vec model
 if not (os.path.isfile(w2vmodel)):
     print(f"word2vec model ({w2vmodel!r})is still being created...")
@@ -260,7 +260,7 @@ print("time: ", nowformat)
 # with open('data/plain_' + mode + '_dataset-validate-Y_'+w2v + "__" + mode2, 'wb') as fp:
 #  pickle.dump(ValidateY, fp)
 
-with open(DATA_PATH / f"{mode}_dataset_finaltest_Y", "wb") as fp:
+with open(DATA_PATH / f"{mode}_dataset_finaltest_X", "wb") as fp:
     pickle.dump(FinaltestX, fp)
 with open(DATA_PATH / f"{mode}_dataset_finaltest_Y", "wb") as fp:
     pickle.dump(FinaltestY, fp)
