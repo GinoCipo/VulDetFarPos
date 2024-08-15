@@ -250,14 +250,15 @@ print("time: ", nowformat)
 
 
 # saving samples
+# In case this doesn't work add _{w2v}__{mode2} to train and validate.
 
-with open(DATA_PATH / f"{mode}_dataset-train-X_{w2v}__{mode2}", 'wb') as fp:
+with open(DATA_PATH / f"{mode}_dataset-train-X", 'wb') as fp:
     pickle.dump(TrainX, fp)
-with open(DATA_PATH / f"{mode}_dataset-train-Y_{w2v}__{mode2}", 'wb') as fp:
+with open(DATA_PATH / f"{mode}_dataset-train-Y", 'wb') as fp:
     pickle.dump(TrainY, fp)
-with open(DATA_PATH / f"{mode}_dataset-validate-X_{w2v}__{mode2}", 'wb') as fp:
+with open(DATA_PATH / f"{mode}_dataset-validate-X", 'wb') as fp:
     pickle.dump(ValidateX, fp)
-with open(DATA_PATH / f"{mode}_dataset-validate-Y_{w2v}__{mode2}", 'wb') as fp:
+with open(DATA_PATH / f"{mode}_dataset-validate-Y", 'wb') as fp:
     pickle.dump(ValidateY, fp)
 with open(DATA_PATH / f"{mode}_dataset_finaltest_X", "wb") as fp:
     pickle.dump(FinaltestX, fp)
