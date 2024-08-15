@@ -181,12 +181,12 @@ print("cutoff " + str(cutoff))
 print("cutoff2 " + str(cutoff2))
 
 
-with open(DATA_PATH / f"{mode}_dataset_keystrain", "wb") as fp:
-    pickle.dump(keystrain, fp)
-with open(DATA_PATH / f"{mode}_dataset_keystest", "wb") as fp:
-    pickle.dump(keystest, fp)
-with open(DATA_PATH / f"{mode}_dataset_keysfinaltest", "wb") as fp:
-    pickle.dump(keysfinaltest, fp)
+#with open(DATA_PATH / f"{mode}_dataset_keystrain", "wb") as fp:
+#    pickle.dump(keystrain, fp)
+#with open(DATA_PATH / f"{mode}_dataset_keystest", "wb") as fp:
+#    pickle.dump(keystest, fp)
+#with open(DATA_PATH / f"{mode}_dataset_keysfinaltest", "wb") as fp:
+#    pickle.dump(keysfinaltest, fp)
 
 TrainX = []
 TrainY = []
@@ -251,15 +251,14 @@ print("time: ", nowformat)
 
 # saving samples
 
-# with open('data/plain_' + mode + '_dataset-train-X_'+w2v + "__" + mode2, 'wb') as fp:
-#  pickle.dump(TrainX, fp)
-# with open('data/plain_' + mode + '_dataset-train-Y_'+w2v + "__" + mode2, 'wb') as fp:
-#  pickle.dump(TrainY, fp)
-# with open('data/plain_' + mode + '_dataset-validate-X_'+w2v + "__" + mode2, 'wb') as fp:
-#  pickle.dump(ValidateX, fp)
-# with open('data/plain_' + mode + '_dataset-validate-Y_'+w2v + "__" + mode2, 'wb') as fp:
-#  pickle.dump(ValidateY, fp)
-
+with open(DATA_PATH / f"{mode}_dataset-train-X_{w2v}__{mode2}", 'wb') as fp:
+    pickle.dump(TrainX, fp)
+with open(DATA_PATH / f"{mode}_dataset-train-Y_{w2v}__{mode2}", 'wb') as fp:
+    pickle.dump(TrainY, fp)
+with open(DATA_PATH / f"{mode}_dataset-validate-X_{w2v}__{mode2}", 'wb') as fp:
+    pickle.dump(ValidateX, fp)
+with open(DATA_PATH / f"{mode}_dataset-validate-Y_{w2v}__{mode2}", 'wb') as fp:
+    pickle.dump(ValidateY, fp)
 with open(DATA_PATH / f"{mode}_dataset_finaltest_X", "wb") as fp:
     pickle.dump(FinaltestX, fp)
 with open(DATA_PATH / f"{mode}_dataset_finaltest_Y", "wb") as fp:

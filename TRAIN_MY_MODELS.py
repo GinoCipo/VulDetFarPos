@@ -17,8 +17,8 @@ if len(sys.argv) > 1:
 
 cpu = -25
 
-X = pd.read_pickle(f"data/{mode}_dataset_finaltest_X")
-y = pd.read_pickle(f"data/{mode}_dataset_finaltest_Y")
+X = pd.read_pickle(f"data/{mode}_dataset_train_X")
+y = pd.read_pickle(f"data/{mode}_dataset_train_Y")
 
 # sample = pd.read_pickle(f"data/{mode}_dataset_finaltest")
 # sample["tile"] = sample["id"].apply(lambda i: "b" + str(i)[1:4])
