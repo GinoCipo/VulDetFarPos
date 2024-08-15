@@ -15,7 +15,7 @@ mode = "xss"
 if len(sys.argv) > 1:
     mode = sys.argv[1]
 
-cpu = 12
+cpu = -25
 
 X = pd.read_pickle(f"data/{mode}_dataset_finaltest_X")
 y = pd.read_pickle(f"data/{mode}_dataset_finaltest_Y")
@@ -43,7 +43,7 @@ y = pd.read_pickle(f"data/{mode}_dataset_finaltest_Y")
 
 now = datetime.now()  # current date and time
 nowformat = now.strftime("%H:%M")
-print("Finished loading data, starting SVC.", nowformat)
+print(f"Finished loading data, starting SVC for {mode}", nowformat)
 # Split the dataset in two equal parts
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42069)
@@ -88,10 +88,10 @@ for score in scores:
 
 now = datetime.now()  # current date and time
 nowformat = now.strftime("%H:%M")
-print("Starting Random Forest.", nowformat)
+print(f"Starting Random Forest for {mode}.", nowformat)
 # Split the dataset in two equal parts
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=0)
+    X, y, test_size=0.2, random_state=42069)
 
 # Set the parameters by cross-validation
 tuned_parameters = [
@@ -135,10 +135,10 @@ for score in scores:
 
 now = datetime.now()  # current date and time
 nowformat = now.strftime("%H:%M")
-print("K-Nearest Neighbors.", nowformat)
+print(f"Starting K-Nearest Neighbors for {mode}.", nowformat)
 # Split the dataset in two equal parts
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=0)
+    X, y, test_size=0.2, random_state=42069)
 
 # Set the parameters by cross-validation
 tuned_parameters = [

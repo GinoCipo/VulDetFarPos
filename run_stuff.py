@@ -5,7 +5,7 @@ vulnerabilities = ["command_injection", "open_redirect", "path_disclosure", "rem
 
 # Iterate over the vulnerabilities and run the command for each
 for vulnerability in vulnerabilities:
-    command = f"python Train-model.py {vulnerability}"
+    command = f"python Train-model.py {vulnerability} > log_{vulnerability}.txt"
     try:
         # Execute the command
         subprocess.run(command, check=True, shell=True)
