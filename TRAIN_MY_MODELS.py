@@ -1,4 +1,6 @@
+from msilib import sequence
 import sys
+import numpy
 import pandas as pd
 from datetime import datetime
 
@@ -17,8 +19,44 @@ if len(sys.argv) > 1:
 
 cpu = 1
 
-X = pd.read_pickle(f"data/{mode}_dataset-train-X")
-y = pd.read_pickle(f"data/{mode}_dataset-train-Y")
+TrainX = pd.read_pickle(f"data/{mode}_dataset-train-X")
+TrainY = pd.read_pickle(f"data/{mode}_dataset-train-Y")
+ValidateX = pd.read_pickle(f"data/{mode}_dataset-validate-X")
+ValidateY = pd.read_pickle(f"data/{mode}_dataset-validate-Y")
+
+X_train = numpy.array(TrainX, dtype="object")
+y_train = numpy.array(TrainY, dtype="object")
+X_test = numpy.array(ValidateX, dtype="object")
+y_test = numpy.array(ValidateY, dtype="object")
+
+# in the original collection of data, the 0 and 1 were used the other way round, so now they are switched so that "1" means vulnerable and "0" means clean.
+
+for i in range(len(y_train)):
+    if y_train[i] == 0:
+        y_train[i] = 1
+    else:
+        y_train[i] = 0
+
+for i in range(len(y_test)):
+    if y_test[i] == 0:
+        y_test[i] = 1
+    else:
+        y_test[i] = 0
+
+max_length = 200
+
+X_train = sequence.pad_sequences(X_train, maxlen=max_length)
+X_test = sequence.pad_sequences(X_test, maxlen=max_length)
+X_train = numpy.asarray(X_train).astype(numpy.float32)
+y_train = numpy.asarray(y_train).astype(numpy.float32)
+X_test = numpy.asarray(X_test).astype(numpy.float32)
+y_test = numpy.asarray(y_test).astype(numpy.float32)
+
+nsamples, nx, ny = X_train.shape
+X_train = X_train.reshape((nsamples, nx * ny))
+
+nsamples, nx, ny = X_test.shape
+X_test = X_test.reshape((nsamples, nx * ny))
 
 # sample = pd.read_pickle(f"data/{mode}_dataset_finaltest")
 # sample["tile"] = sample["id"].apply(lambda i: "b" + str(i)[1:4])
