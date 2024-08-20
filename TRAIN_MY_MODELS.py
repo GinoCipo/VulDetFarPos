@@ -15,10 +15,10 @@ mode = "xss"
 if len(sys.argv) > 1:
     mode = sys.argv[1]
 
-cpu = -25
+cpu = 1
 
-X = pd.read_pickle(f"data/{mode}_dataset_train_X")
-y = pd.read_pickle(f"data/{mode}_dataset_train_Y")
+X = pd.read_pickle(f"data/{mode}_dataset-train-X")
+y = pd.read_pickle(f"data/{mode}_dataset-train-Y")
 
 # sample = pd.read_pickle(f"data/{mode}_dataset_finaltest")
 # sample["tile"] = sample["id"].apply(lambda i: "b" + str(i)[1:4])
