@@ -1,9 +1,9 @@
-from msilib import sequence
 import sys
 import numpy
 import pandas as pd
-from datetime import datetime
 
+from datetime import datetime
+from keras.preprocessing import sequence
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 from sklearn.model_selection import GridSearchCV, train_test_split
