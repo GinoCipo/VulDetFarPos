@@ -17,7 +17,7 @@ mode = "xss"
 if len(sys.argv) > 1:
     mode = sys.argv[1]
 
-cpu = 1
+cpu = None
 
 TrainX = pd.read_pickle(f"data/{mode}_dataset-train-X")
 TrainY = pd.read_pickle(f"data/{mode}_dataset-train-Y")
@@ -83,8 +83,8 @@ now = datetime.now()  # current date and time
 nowformat = now.strftime("%H:%M")
 print(f"Finished loading data, starting SVC for {mode}", nowformat)
 # Split the dataset in two equal parts
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42069)
+# X_train, X_test, y_train, y_test = train_test_split(
+#     X, y, test_size=0.2, random_state=42069)
 
 # Set the parameters by cross-validation
 tuned_parameters = [

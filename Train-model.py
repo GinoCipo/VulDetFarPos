@@ -30,7 +30,7 @@ from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import f1_score
 from sklearn.utils import class_weight
-import tensorflow as tf
+# import tensorflow as tf
 from gensim.models import Word2Vec, KeyedVectors
 
 
@@ -74,8 +74,8 @@ w = "withString"  # word2vec model is not replacing strings but keeping them
 
 # get word2vec model
 w2v = "word2vec_" + w + str(mincount) + "-" + str(iterationen) + "-" + str(s)
-# w2vmodel = os.path.join("wordtovec_models", f"{w2v}.model")
-w2vmodel = f"./wordtovec_models/{w2v}.model"
+w2vmodel = os.path.join("wordtovec_models", f"{w2v}.model")
+# w2vmodel = f"./wordtovec_models/{w2v}.model"
 # load word2vec model
 if not (os.path.isfile(w2vmodel)):
     print(f"word2vec model ({w2vmodel!r})is still being created...")
